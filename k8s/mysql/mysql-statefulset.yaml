@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
+  labels:
+    app: mysql
+    tier: database
 spec:
   serviceName: mysql-headless
 
@@ -15,6 +18,7 @@ spec:
     metadata:
       labels:
         app: mysql
+        tier: database
 
     spec:
       containers:

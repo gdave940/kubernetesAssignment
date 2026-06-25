@@ -2,6 +2,8 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: nagp-app-hpa
+  labels:
+    tier: application
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
