@@ -6,6 +6,12 @@ metadata:
 spec:
   replicas: 4
 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
   selector:
     matchLabels:
       app: nagp-app
@@ -14,6 +20,7 @@ spec:
     metadata:
       labels:
         app: nagp-app
+        version: "v1"
 
     spec:
       containers:
